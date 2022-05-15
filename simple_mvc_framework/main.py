@@ -1,3 +1,6 @@
+from quopri import decodestring
+
+from simple_mvc_framework.requests import GetRequests, PostRequests
 from simple_mvc_framework.templates_renderer import render
 
 
@@ -24,6 +27,20 @@ class Application:
         path = env['PATH_INFO']
 
         request = {}
+        # Define request method
+        method = env['REQUEST_METHOD']
+        request['method'] = method
+        # Process the request depending on its type
+        if method == 'GET':
+            request_params = GetRequests().get_request_params(env)
+            request['request_params'] = Application.decode_value(request_params)
+            print(f'We got GET-request:'
+                  f' {Application.decode_value(request_params)}')
+        if method == 'POST':
+            data = PostRequests().get_request_params(env)
+            request['data'] = Application.decode_value(data)
+            print(f'We got POST-request: {Application.decode_value(data)}')
+
         # Render pages by routes
         if path in self.routes:
             view = self.routes[path]
@@ -43,10 +60,20 @@ class Application:
 
         return [body.encode('utf-8')]
 
-    def content_type(self, path):
+    @staticmethod
+    def content_type(path):
         if path.endswith(".css"):
             return "text/css"
         # elif path.endswith(".png"):
         #     return "image/png"
         else:
             return "text/html"
+
+    @staticmethod
+    def decode_value(data):
+        new_data = {}
+        for k, v in data.items():
+            val = bytes(v.replace('%', '=').replace("+", " "), 'UTF-8')
+            val_decode_str = decodestring(val).decode('UTF-8')
+            new_data[k] = val_decode_str
+        return new_data

@@ -35,6 +35,7 @@ class PostRequests:
     def parse_wsgi_input_data(data: bytes):
         result = {}
         if data:
+            print(f'raw data: {data}')
             data_str = data.decode(encoding='utf-8')
             print(f'Decoded string - {data_str}')
             result = parse_input_data(data_str)

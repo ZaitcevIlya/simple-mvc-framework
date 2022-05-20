@@ -15,7 +15,7 @@ class StaticFiles:
 
 class PageNotFound:
     def __call__(self, request):
-        return '404 NOT FOUND', render(f'./templates/404.html')
+        return '404 NOT FOUND', render('404.html')
 
 
 class Application:
@@ -47,8 +47,6 @@ class Application:
         # Load static CSS files to apply styles
         elif path.endswith(".css"):
             view = StaticFiles(path)
-        # TODO: add image support later
-        # elif path.endswith(".css") or path.endswith(".png"):
         else:
             view = PageNotFound()
 
@@ -64,8 +62,6 @@ class Application:
     def content_type(path):
         if path.endswith(".css"):
             return "text/css"
-        # elif path.endswith(".png"):
-        #     return "image/png"
         else:
             return "text/html"
 

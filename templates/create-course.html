@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-	Languages school
+Создание курса
 {% endblock %}
 {% block style %}{% endblock %}
 {% block header %}
@@ -15,8 +15,18 @@
     </div>
 {% endblock %}
 {% block body %}
-    {% include "inc-index-body.html" %}
-{% endblock %}
-{% block footer %}
-    {% include "inc-footer.html" %}
+    <div>
+        <a href="/courses-list/?id={{id}}">back</a>
+    </div>
+
+    <br>
+    <br>
+
+    <div>
+        <h1>Create course for category "{{name}}"</h1>
+        <form method="post">
+            <input type="text" name="name" placeholder="Course name">
+            <button class="submit" type="submit">Save and back to list of courses</button>
+        </form>
+    </div>
 {% endblock %}

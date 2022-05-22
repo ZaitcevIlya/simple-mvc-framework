@@ -1,22 +1,19 @@
 {% extends "base.html" %}
 {% block title %}
-	Languages school
+	Our study programs
 {% endblock %}
 {% block style %}{% endblock %}
 {% block header %}
     <div id="menubar">
         <ul id="menu">
-            <li class="selected"><a href="/">Home</a></li>
+            <li><a href="/">Home</a></li>
             <!--          <li><a href="examples.html">Examples</a></li>-->
             <!--          <li><a href="page.html">A Page</a></li>-->
-            <li><a href="/study-programs/">Study programs</a></li>
+            <li class="selected"><a href="/study-programs/">Study programs</a></li>
             <li><a href="/contact/">Contact Us</a></li>
         </ul>
     </div>
 {% endblock %}
 {% block body %}
-    {% include "inc-index-body.html" %}
-{% endblock %}
-{% block footer %}
-    {% include "inc-footer.html" %}
+	{% include "inc-study-programs-body.html" %}
 {% endblock %}

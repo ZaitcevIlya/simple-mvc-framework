@@ -3,11 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="../static/style.css" title="style" />
     {% block style %}{% endblock %}
 </head>
 <body>
-    {% block header %}{% endblock %}
-    {% block body %}{% endblock %}
+    <div id="header">
+        {% include "inc-logo.html" %}
+        {% block header %}{% endblock %}
+    </div>
+    <div id="site_content">
+        {% include "inc-sidebar-body.html" %}
+        <div class="content">
+            {% block body %}{% endblock %}
+        </div>
+    </div>
+
     {% block footer %}{% endblock %}
 </body>
 </html>

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-	Languages school
+    Create a category
 {% endblock %}
 {% block style %}{% endblock %}
 {% block header %}
@@ -15,8 +15,9 @@
     </div>
 {% endblock %}
 {% block body %}
-    {% include "inc-index-body.html" %}
-{% endblock %}
-{% block footer %}
-    {% include "inc-footer.html" %}
+    <h1>New category</h1>
+    <form method="post">
+        <input type="text" name="name" placeholder="Category name">
+        <button class="submit" type="submit">Save and back to main</button>
+    </form>
 {% endblock %}

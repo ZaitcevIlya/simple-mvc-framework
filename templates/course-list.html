@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %}
+Список курсов
+{% endblock %}
+{% block style %}{% endblock %}
+{% block header %}
+    <div id="menubar">
+        <ul id="menu">
+            <li class="selected"><a href="/">Home</a></li>
+            <!--          <li><a href="examples.html">Examples</a></li>-->
+            <!--          <li><a href="page.html">A Page</a></li>-->
+            <li><a href="/study-programs/">Study programs</a></li>
+            <li><a href="/contact/">Contact Us</a></li>
+        </ul>
+    </div>
+{% endblock %}
+{% block body %}
+    <div>
+        <a href="/">to main</a>
+    </div>
+    <br>
+    <br>
+    <div>
+        <h1>Courses list in "{{name}}" category</h1>
+        <div>
+            <a href="/create-course/?id={{id}}">Create a course</a>
+        </div>
+        <br>
+        {% if objects_list %}
+            <ul>
+                {% for item in objects_list %}
+                <li>
+                    <h4>{{item.name}}</h4>
+        <!--            <span><a href="/copy-course/?name={{item.name}}">Copy</a></span>-->
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <br>
+            <h5>There is no any courses yet</h5>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-	Languages school
+Список курсов
 {% endblock %}
 {% block style %}{% endblock %}
 {% block header %}
@@ -15,8 +15,20 @@
     </div>
 {% endblock %}
 {% block body %}
-    {% include "inc-index-body.html" %}
-{% endblock %}
-{% block footer %}
-    {% include "inc-footer.html" %}
+    <a href="/">to main</a>
+
+    <h1>Categories</h1>
+    <ul>
+
+        {% for item in objects_list %}
+        <li>
+            {{item.name}} <span>Number of Courses: {{item.course_count()}}</span>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <div>
+        <li><a href="/courses-list/">Courses list</a></li>
+        <li><a href="/create-course/">Create a course</a></li>
+    </div>
 {% endblock %}

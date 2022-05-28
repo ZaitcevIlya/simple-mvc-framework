@@ -14,14 +14,3 @@ def today_date(request):
 
 
 fronts = [some_front, today_date]
-
-routes = {
-    '/': IndexView(),
-    '/contact/': ContactView(),
-    '/study-programs/': StudyPrograms(),
-    '/courses-list/': CoursesList(),
-    '/create-course/': CreateCourse(),
-    '/create-category/': CreateCategory(),
-    '/category-list/': CategoryList()
-    # '/copy-course/': CopyCourse()
-}

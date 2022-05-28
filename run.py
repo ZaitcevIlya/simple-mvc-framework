@@ -3,7 +3,8 @@
 from wsgiref.simple_server import make_server
 
 from simple_mvc_framework.main import Application
-from urls import routes, fronts
+from patterns.structural_patterns import routes
+from urls import fronts
 
 framework = Application(routes, fronts)
 

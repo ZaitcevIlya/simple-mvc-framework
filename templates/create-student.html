@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block title %}
-Создание курса
+Создание студента
 {% endblock %}
 {% block style %}{% endblock %}
 {% block header %}
@@ -16,15 +16,20 @@
 {% endblock %}
 {% block body %}
     <div>
-        <a href="/courses-list/?id={{id}}">back</a>
+        <ul>
+            <li>
+                <a href="/student-list/">Student list</a>
+            </li>
+        </ul>
+
     </div>
     <br>
     <br>
     <div>
-        <h1>Create course for category "{{name}}"</h1>
+        <h1>Create a student</h1>
         <form method="post">
-            <input type="text" name="name" placeholder="Course name">
-            <button class="submit" type="submit">Save and back to list of courses</button>
+            <input type="text" name="name" placeholder="Student name">
+            <button class="submit" type="submit">Save</button>
         </form>
     </div>
 {% endblock %}
